@@ -23,7 +23,7 @@
     scheme: 'Gemini',
     version: '7.4.2',
     exturl: false,
-    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    sidebar: {"position":"right","display":"post","offset":12,"onmobile":false},
     copycode: {"enable":false,"show_result":false,"style":null},
     back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
     bookmark: {"enable":false,"color":"#222","save":"auto"},
@@ -39,7 +39,7 @@
       labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
     },
     localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
-    path: '',
+    path: 'search.xml',
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     translation: {
       copy_button: 'Copy',
@@ -143,6 +143,21 @@
     <a href="/blog/" rel="section"><i class="fa fa-fw fa-home"></i>Home</a>
 
   </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/blog/about/" rel="section"><i class="fa fa-fw fa-user"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/blog/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/blog/categories/" rel="section"><i class="fa fa-fw fa-th"></i>Categories</a>
+
+  </li>
         <li class="menu-item menu-item-archives">
 
     <a href="/blog/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives</a>
@@ -177,8 +192,8 @@
     <link itemprop="mainEntityOfPage" href="https://summershanshan.github.io/blog/2019/10/23/test/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/blog/images/avatar.gif">
-      <meta itemprop="name" content="shanshan.chen">
+      <meta itemprop="image" content="/blog/uploads/avatar.png">
+      <meta itemprop="name" content="程序喵">
       <meta itemprop="description" content="">
     </span>
 
@@ -199,7 +214,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2019-10-23 13:29:39 / Modified: 14:25:19" itemprop="dateCreated datePublished" datetime="2019-10-23T13:29:39+08:00">2019-10-23</time>
+              <time title="Created: 2019-10-23 13:29:39 / Modified: 17:31:10" itemprop="dateCreated datePublished" datetime="2019-10-23T13:29:39+08:00">2019-10-23</time>
             </span>
 
           
@@ -298,8 +313,8 @@
     <link itemprop="mainEntityOfPage" href="https://summershanshan.github.io/blog/2019/10/23/hello-world/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/blog/images/avatar.gif">
-      <meta itemprop="name" content="shanshan.chen">
+      <meta itemprop="image" content="/blog/uploads/avatar.png">
+      <meta itemprop="name" content="程序喵">
       <meta itemprop="description" content="">
     </span>
 
@@ -318,8 +333,9 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
+              
 
-              <time title="Created: 2019-10-23 11:03:04" itemprop="dateCreated datePublished" datetime="2019-10-23T11:03:04+08:00">2019-10-23</time>
+              <time title="Created: 2019-10-23 11:03:04 / Modified: 17:31:10" itemprop="dateCreated datePublished" datetime="2019-10-23T11:03:04+08:00">2019-10-23</time>
             </span>
 
           
@@ -416,9 +432,9 @@
 
       <div class="site-overview-wrap sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-  <img class="site-author-image" itemprop="image" alt="shanshan.chen"
-    src="/blog/images/avatar.gif">
-  <p class="site-author-name" itemprop="name">shanshan.chen</p>
+  <img class="site-author-image" itemprop="image" alt="程序喵"
+    src="/blog/uploads/avatar.png">
+  <p class="site-author-name" itemprop="name">程序喵</p>
   <div class="site-description" itemprop="description"></div>
 </div>
 <div class="site-state-wrap motion-element">
@@ -436,9 +452,20 @@
       </div>
   </nav>
 </div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/summershanshan" title="GitHub &amp;rarr; https:&#x2F;&#x2F;github.com&#x2F;summershanshan" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:shanshan.chen@ptmind.com" title="E-Mail &amp;rarr; mailto:shanshan.chen@ptmind.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+  </div>
 
 
-
+<!-- CloudCalendar -->
+<div class="widget-wrap" style="width: 90%;margin-left: auto;margin-right: auto; opacity: 0.97;">
+	<div class="widget" id="CloudCalendar"></div>
+</div>
       </div>
 
     </div>
@@ -460,7 +487,7 @@
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">shanshan.chen</span>
+  <span class="author" itemprop="copyrightHolder">程序喵</span>
 </div>
   <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> v4.0.0
   </div>
@@ -520,6 +547,23 @@
   
 
   
+<!-- calendar widget -->
+
+    <script src="//cdn.jsdelivr.net/gh/theme-next/theme-next-calendar/calendar.min.js"></script>
+    <script src="//cdn.jsdelivr.net/gh/theme-next/theme-next-calendar/languages.min.js"></script>
+    <script>
+    $(function() {
+        $('#CloudCalendar').aCalendar('zh-CN',
+            $.extend(
+                '', {
+                    single:true,
+                    root:'/calendar/'
+                }
+            )
+        );
+    });
+    </script>
+
 
 </body>
 </html>
