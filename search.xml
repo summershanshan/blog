@@ -1,19 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>test</title>
-    <url>/blog/2019/10/23/test/</url>
+    <title>CustomEvent（自定义事件） 初识篇</title>
+    <url>/blog/2019/10/25/customEvent/</url>
+    <content><![CDATA[<h2 id="自定义事件（CustomEvent）"><a href="#自定义事件（CustomEvent）" class="headerlink" title="自定义事件（CustomEvent）"></a>自定义事件（CustomEvent）</h2><p>创建自定义事件语法定义 </p>
+<figure class="highlight javascript"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> event = <span class="keyword">new</span> CustomEvent(type[, eventInitDict])</span><br></pre></td></tr></tbody></table></figure>
+
+<blockquote><p>类似于Event事件的构造函数进行工作，除了可选的eventInitDict参数现在还允许设置detail属性。</p>
+</blockquote>
+
+<p>创建自定义事件</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="code"><pre><span class="line"><span class="comment">// 创建一个用户登录的自定义事件</span></span><br><span class="line"><span class="keyword">let</span> loginEvent = <span class="keyword">new</span> CustomEvent(<span class="string">'userLogin'</span>,{</span><br><span class="line">    username:<span class="string">'xiaoming'</span></span><br><span class="line">});</span><br><span class="line"><span class="comment">// 触发</span></span><br><span class="line">someElement.dispatchEvent(loginEvent);</span><br></pre></td></tr></tbody></table></figure>
+
+<p>// 添加事件监听器（还和之前一样）</p>
+<figure class="highlight javascript"><figcaption><span>监听函数</span></figcaption><table><tbody><tr><td class="code"><pre><span class="line">someElement.addEventListener(<span class="string">'userLogion'</span>,<span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>{</span><br><span class="line">    <span class="built_in">console</span>.log(e);</span><br><span class="line">    <span class="built_in">console</span>.log(e.detail);</span><br><span class="line">})</span><br></pre></td></tr></tbody></table></figure>
+<a id="more"></a>
+<p>但不是所有浏览器都支持自定义事件CustomEvent这个API的。尤其是ie浏览器。 可以自己封装一个。</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="code"><pre><span class="line"><span class="comment">// 封装一个CustomEvent</span></span><br><span class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{</span><br><span class="line">    <span class="keyword">if</span>(<span class="keyword">typeof</span> <span class="built_in">window</span>.CustomEvent ==== <span class="string">'undefined'</span>){</span><br><span class="line">        <span class="function"><span class="keyword">function</span> <span class="title">CustomEvent</span>(<span class="params">event, params</span>)</span>{</span><br><span class="line">            params = params || {</span><br><span class="line">                bubbles:<span class="literal">false</span>,</span><br><span class="line">                cancelable:<span class="literal">false</span>,</span><br><span class="line">                detail:<span class="literal">undefined</span></span><br><span class="line">            };</span><br><span class="line">            <span class="keyword">var</span> evt = <span class="built_in">document</span>.createEvent(<span class="string">'Events'</span>);</span><br><span class="line">            <span class="keyword">var</span> bubbles = <span class="literal">true</span>;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">var</span> name <span class="keyword">in</span> params){</span><br><span class="line">                name === <span class="string">'bubbles'</span> ? (bubbles = !!params[name]) : (evt[name] = params[name]);</span><br><span class="line">            };</span><br><span class="line">            evt.initEvent(event, bubbles, <span class="literal">true</span>);</span><br><span class="line">            <span class="keyword">return</span> evt;</span><br><span class="line">        };</span><br><span class="line">        CustomEvent.prototype = <span class="built_in">window</span>.Event.prototype;</span><br><span class="line">        <span class="built_in">window</span>.CustomEvent = CustomEvent;</span><br><span class="line">    }</span><br><span class="line">})()</span><br><span class="line"><span class="comment">// 另一种写法</span></span><br><span class="line"><span class="keyword">if</span>(!<span class="built_in">window</span>.CustomEvent){</span><br><span class="line">    widow.CustomEvent = <span class="function"><span class="keyword">function</span>(<span class="params">type, config</span>)</span>{</span><br><span class="line">        config = config || { <span class="attr">bubbles</span>:<span class="literal">false</span>,<span class="attr">cancelable</span>:<span class="literal">false</span>,<span class="attr">detail</span>:<span class="literal">undefined</span>};</span><br><span class="line">        <span class="keyword">var</span> evt = <span class="built_in">document</span>.createEvent(<span class="string">'CustomEvent'</span>);</span><br><span class="line">        evt.initCustomEvent(type, config,bubbles, config.cancelable, config.detail);</span><br><span class="line">        <span class="keyword">return</span> evt;</span><br><span class="line">    }</span><br><span class="line">    <span class="built_in">window</span>.CustomEvent.prototype = <span class="built_in">window</span>.Event.prototype;</span><br><span class="line">}</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure><script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>]]></content>
+      <categories>
+        <category>javascript</category>
+      </categories>
+      <tags>
+        <tag>javascript</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo 语法初识篇</title>
+    <url>/blog/2019/10/23/hexoTest/</url>
     <content><![CDATA[<h2 id="引用块"><a href="#引用块" class="headerlink" title="引用块"></a>引用块</h2><figure class="highlight plain"><table><tbody><tr><td class="code"><pre><span class="line">{% blockquote Divid Levithan, Wide Awake %}</span><br><span class="line">Do not just seek happiness for yourself. Seek happiness for all. Through kindness. Through mercy.</span><br><span class="line">{% endblockquote %}</span><br></pre></td></tr></tbody></table></figure>
-<blockquote><p>Do not just seek happiness for yourself. Seek happiness for all. Through kindness. Through mercy.</p>
-<footer><strong>Divid Levithan</strong><cite>Wide Awake</cite></footer></blockquote>
 
-<figure class="highlight plain"><table><tbody><tr><td class="code"><pre><span class="line"></span><br><span class="line">{% blockquote @DevDocs https://twitter.com/devdocs/status/356095192085962752 %}</span><br><span class="line">    @DevDocs </span><br><span class="line">{% endblockquote %}</span><br></pre></td></tr></tbody></table></figure>
-
-<blockquote><p>@DevDocs </p>
-<footer><strong>@DevDocs</strong><cite><a href="https://twitter.com/devdocs/status/356095192085962752" target="_blank" rel="noopener">twitter.com/devdocs/status/356095192085962752</a></cite></footer></blockquote>
-
+<figure class="highlight plain"><table><tbody><tr><td class="code"><pre><span class="line">{% blockquote @DevDocs https://twitter.com/devdocs/status/356095192085962752 %}</span><br><span class="line">    @DevDocs </span><br><span class="line">{% endblockquote %}</span><br></pre></td></tr></tbody></table></figure>
+<a id="more"></a>
 <figure class="highlight plain"><table><tbody><tr><td class="code"><pre><span class="line">{% blockquote Seth Godin http://sethgodin.typepad.com/seths_blog/2009/07/welcome-to-island-marketing.html Welcome to Island Marketing %}</span><br><span class="line">Every interaction is both precious and an opportunity to delight.</span><br><span class="line">{% endblockquote %}</span><br></pre></td></tr></tbody></table></figure>
-
+<p>案例：</p>
 <blockquote><p>Every interaction is both precious and an opportunity to delight.</p>
 <footer><strong>Seth Godin</strong><cite><a href="http://sethgodin.typepad.com/seths_blog/2009/07/welcome-to-island-marketing.html" target="_blank" rel="noopener">Welcome to Island Marketing</a></cite></footer></blockquote>
 
@@ -77,8 +114,11 @@
             document.body.appendChild(img);
           });
       </script>]]></content>
+      <categories>
+        <category>practice</category>
+      </categories>
       <tags>
-        <tag>test, javascript, vue, frontend</tag>
+        <tag>hexo doc</tag>
       </tags>
   </entry>
   <entry>
@@ -86,8 +126,8 @@
     <url>/blog/2019/10/23/hello-world/</url>
     <content><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
 <h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></tbody></table></figure>
-
 <p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
+<a id="more"></a>
 <h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></tbody></table></figure>
 
 <p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
