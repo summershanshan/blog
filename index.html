@@ -224,108 +224,6 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh">
-    <link itemprop="mainEntityOfPage" href="https://summershanshan.github.io/blog/2019/11/06/array/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/blog/uploads/avatar.png">
-      <meta itemprop="name" content="程序喵">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="夏之珊’s blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/blog/2019/11/06/array/" class="post-title-link" itemprop="url">Array 读书方法小记</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2019-11-06 13:08:00 / Modified: 14:49:49" itemprop="dateCreated datePublished" datetime="2019-11-06T13:08:00+08:00">2019-11-06</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/blog/categories/javascript/" itemprop="url" rel="index">
-                    <span itemprop="name">javascript</span>
-                  </a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="Array-的原始迭代方法-ES5"><a href="#Array-的原始迭代方法-ES5" class="headerlink" title="Array 的原始迭代方法(ES5)"></a>Array 的原始迭代方法(ES5)</h2><ol>
-<li>every(): 对数组中的每一项运行给定函数，如果该函数对每一项都返回true,则返回true。</li>
-<li>filter(): 对数组的中每一项运行给定函数，返回该函数会返回true的项组成的数组。</li>
-<li>forEach(): 对数组中的每一项都运行给定函数。这个方法没有返回值。</li>
-<li>map(): 对数组中的每一项都运行给定函数，返回每次函数调用的结果组成的数组。</li>
-<li>some(): 对数组中的每一项都运行给定函数，如果该函数对任一项返回true,则返回true。</li>
-</ol>
-<p>这些方法都不会修改数组中的包含的值。</p>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"> <span class="keyword">var</span> numbers = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>];</span><br><span class="line"></span><br><span class="line"> <span class="comment">// every()</span></span><br><span class="line"> <span class="keyword">var</span> everyResult = numbers.every(<span class="function"><span class="keyword">function</span>(<span class="params">item, index, array</span>)</span>{</span><br><span class="line">     <span class="keyword">return</span> item &gt; <span class="number">2</span>;</span><br><span class="line"> });</span><br><span class="line"> <span class="built_in">console</span>.log(everyResult); <span class="comment">// false</span></span><br><span class="line"> <span class="built_in">console</span>.log(numbers); <span class="comment">//原数组不变：[1,2,3,4,5,6,7,8]</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// some()</span></span><br><span class="line"> <span class="keyword">var</span> someResult = numbers.some(<span class="function"><span class="keyword">function</span>(<span class="params">item, index, array</span>)</span>{</span><br><span class="line">     <span class="keyword">return</span> item &gt; <span class="number">2</span>;</span><br><span class="line"> });</span><br><span class="line"> <span class="built_in">console</span>.log(someResult); <span class="comment">// true</span></span><br><span class="line"> <span class="built_in">console</span>.log(numbers); <span class="comment">//原数组不变：[1,2,3,4,5,6,7,8]</span></span><br><span class="line"></span><br><span class="line"> <span class="comment">// filter()</span></span><br><span class="line"> <span class="keyword">var</span> filterResult = numbers.filter(<span class="function"><span class="keyword">function</span>(<span class="params">item, index, array</span>)</span>{</span><br><span class="line">     <span class="keyword">return</span> item &gt; <span class="number">2</span>;</span><br><span class="line"> });</span><br><span class="line"> <span class="built_in">console</span>.log(filterResult); <span class="comment">// [3,4,5,6,7,8]</span></span><br><span class="line"> <span class="built_in">console</span>.log(numbers) <span class="comment">// 原数组不变：[1,2,3,4,5,6,7,8]</span></span><br><span class="line"></span><br><span class="line"> <span class="comment">//map()</span></span><br><span class="line"> <span class="keyword">var</span> mapResult = numbers.map(<span class="function"><span class="keyword">function</span>(<span class="params">item, index, array</span>)</span>{</span><br><span class="line">     <span class="keyword">return</span> item * <span class="number">2</span>;</span><br><span class="line"> });</span><br><span class="line"> <span class="built_in">console</span>.log(mapResult); <span class="comment">// [2,4,6,8,10,12,14,16]</span></span><br><span class="line"> <span class="built_in">console</span>.log(numbers); <span class="comment">// 原数组不变：[1,2,3,4,5,6,7,8] </span></span><br><span class="line"></span><br><span class="line"> <span class="comment">// forEach 没有返回值</span></span><br><span class="line"> numbers.forEach(<span class="function"><span class="keyword">function</span>(<span class="params">item, index, array</span>)</span>{</span><br><span class="line">    <span class="comment">//执行一系列操作</span></span><br><span class="line"> });</span><br></pre></td></tr></tbody></table></figure>
-
-<h2 id="Array-归并方法"><a href="#Array-归并方法" class="headerlink" title="Array 归并方法"></a>Array 归并方法</h2><ol>
-<li>reduce(): 从数组第一项开始，逐个遍历到最后，然后构建一个最终返回的值。</li>
-<li>reduceRight(): 用法同reduce，只不过是从数组最后一项开始，逐个遍历到第一项。方向相反。<br>方法接受两个参数：一个是在每一项上调用的函数 和 作为归并基础的初始值（第二个参数是可选项）。如果第二个参数不填，那么初始值就是开始遍历的第一项。<br>第一个参数函数 接受四个参数： 前一个值、当前值、项的索引和数组对象。这个函数返回的任何值都会作为一个参数自动传给下一项。<br>例子：<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 求数组所有值之和</span></span><br><span class="line"><span class="keyword">var</span> numbers = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>];</span><br><span class="line"><span class="keyword">var</span> sum = numbers.reduce(<span class="function"><span class="keyword">function</span>(<span class="params">prev, cur, index, array</span>)</span>{</span><br><span class="line">    <span class="keyword">return</span> prev + cur;</span><br><span class="line">});</span><br><span class="line"><span class="built_in">console</span>.log(sum); <span class="comment">//36</span></span><br></pre></td></tr></tbody></table></figure>
-</li>
-</ol>
-<script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh">
     <link itemprop="mainEntityOfPage" href="https://summershanshan.github.io/blog/2019/10/25/customEvent/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -615,7 +513,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/blog/archives/">
         
-          <span class="site-state-item-count">4</span>
+          <span class="site-state-item-count">3</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>

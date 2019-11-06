@@ -51,17 +51,17 @@
 </script>
 
   <meta name="description" content="Array 的原始迭代方法(ES5) every(): 对数组中的每一项运行给定函数，如果该函数对每一项都返回true,则返回true。 filter(): 对数组的中每一项运行给定函数，返回该函数会返回true的项组成的数组。 forEach(): 对数组中的每一项都运行给定函数。这个方法没有返回值。 map(): 对数组中的每一项都运行给定函数，返回每次函数调用的结果组成的数组。 some()">
-<meta name="keywords" content="javascript">
-<meta property="og:type" content="article">
+<meta name="keywords" content="frontend javascript css html h5">
+<meta property="og:type" content="website">
 <meta property="og:title" content="Array 读书方法小记">
-<meta property="og:url" content="https:&#x2F;&#x2F;summershanshan.github.io&#x2F;2019&#x2F;11&#x2F;06&#x2F;array&#x2F;index.html">
+<meta property="og:url" content="https:&#x2F;&#x2F;summershanshan.github.io&#x2F;draft&#x2F;array.html">
 <meta property="og:site_name" content="夏之珊’s blog">
 <meta property="og:description" content="Array 的原始迭代方法(ES5) every(): 对数组中的每一项运行给定函数，如果该函数对每一项都返回true,则返回true。 filter(): 对数组的中每一项运行给定函数，返回该函数会返回true的项组成的数组。 forEach(): 对数组中的每一项都运行给定函数。这个方法没有返回值。 map(): 对数组中的每一项都运行给定函数，返回每次函数调用的结果组成的数组。 some()">
 <meta property="og:locale" content="zh">
-<meta property="og:updated_time" content="2019-11-06T06:49:49.000Z">
+<meta property="og:updated_time" content="2019-11-06T06:51:50.000Z">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://summershanshan.github.io/2019/11/06/array/">
+<link rel="canonical" href="https://summershanshan.github.io/draft/array">
 
 
 <script id="page-configurations">
@@ -69,13 +69,14 @@
   CONFIG.page = {
     sidebar: "",
     isHome: false,
-    isPost: true,
-    isPage: false,
+    isPost: false,
+    isPage: true,
     isArchive: false
   };
 </script>
 
-  <title>Array 读书方法小记 | 夏之珊’s blog</title>
+  <title>Array 读书方法小记 | 夏之珊’s blog
+  </title>
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-133168679-1"></script>
     <script>
@@ -218,72 +219,34 @@
       <div class="main-inner">
         <div class="content-wrap">
           
+  
+  
 
           <div class="content">
             
 
   <div class="posts-expand">
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh">
-    <link itemprop="mainEntityOfPage" href="https://summershanshan.github.io/blog/2019/11/06/array/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/blog/uploads/avatar.png">
-      <meta itemprop="name" content="程序喵">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="夏之珊’s blog">
-    </span>
+    
+    
+    
+    <div class="post-block" lang="zh">
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          Array 读书方法小记
-        </h1>
 
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
+<h1 class="post-title" itemprop="name headline">Array 读书方法小记
+</h1>
 
-              <time title="Created: 2019-11-06 13:08:00 / Modified: 14:49:49" itemprop="dateCreated datePublished" datetime="2019-11-06T13:08:00+08:00">2019-11-06</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/blog/categories/javascript/" itemprop="url" rel="index">
-                    <span itemprop="name">javascript</span>
-                  </a>
-                </span>
-            </span>
+<div class="post-meta">
+  
 
-          
-            <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv" style="display: none;">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">Views: </span>
-              <span id="busuanzi_value_page_pv"></span>
-            </span>
+</div>
 
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
+</header>
 
       
-        <h2 id="Array-的原始迭代方法-ES5"><a href="#Array-的原始迭代方法-ES5" class="headerlink" title="Array 的原始迭代方法(ES5)"></a>Array 的原始迭代方法(ES5)</h2><ol>
+      
+      
+      <div class="post-body">
+          <h2 id="Array-的原始迭代方法-ES5"><a href="#Array-的原始迭代方法-ES5" class="headerlink" title="Array 的原始迭代方法(ES5)"></a>Array 的原始迭代方法(ES5)</h2><ol>
 <li>every(): 对数组中的每一项运行给定函数，如果该函数对每一项都返回true,则返回true。</li>
 <li>filter(): 对数组的中每一项运行给定函数，返回该函数会返回true的项组成的数组。</li>
 <li>forEach(): 对数组中的每一项都运行给定函数。这个方法没有返回值。</li>
@@ -317,38 +280,16 @@
             document.body.appendChild(img);
           });
       </script>
+      </div>
+      
+      
+      
     </div>
+    
 
     
     
     
-
-      <footer class="post-footer">
-          <div class="post-tags">
-              <a href="/blog/tags/javascript/" rel="tag"># javascript</a>
-          </div>
-
-        
-
-          <div class="post-nav">
-            <div class="post-nav-next post-nav-item">
-                <a href="/blog/2019/10/25/customEvent/" rel="next" title="CustomEvent（自定义事件） 初识篇">
-                  <i class="fa fa-chevron-left"></i> CustomEvent（自定义事件） 初识篇
-                </a>
-            </div>
-
-            <span class="post-nav-divider"></span>
-
-            <div class="post-nav-prev post-nav-item">
-            </div>
-          </div>
-      </footer>
-    
-  </article>
-  
-  
-  
-
   </div>
 
 
@@ -394,7 +335,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/blog/archives/">
         
-          <span class="site-state-item-count">4</span>
+          <span class="site-state-item-count">3</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
